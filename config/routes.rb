@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # 問い合わせフォーム
+  resources :inquiries, only: [:new, :create]
+  post 'inquiries/confirm' => 'inquiries#confirm', as: 'confirm'
+  get 'done' => 'inquiries#done', as: 'done'
+  
+  root to: 'homes#top'
+  get 'about' => 'homes#about', as: 'about'
 end
