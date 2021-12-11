@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+/* ヘッダー */
 .navbar {
   border-bottom: 1px solid #3f312b;
 }
@@ -9,11 +10,25 @@
     border-color: rgba(0,0,0,0);
 }
 
+/* メイン要素 */
 main {
   min-height: 850px;
   background-color: #ffffff;
 }
 
+/* メインビジュアル */
+.jumbotron {
+  background: url(mv.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.jumbotron .container .mv-text {
+  width: 320px;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.8);
+}
+
+/* フッター */
 footer {
   background-color: #3f312b;
 }
