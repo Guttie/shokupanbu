@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-/* ヘッダー */
+/* ナビゲーションバー */
 .navbar {
   border-bottom: 1px solid #3f312b;
 }
@@ -14,6 +14,17 @@
 main {
   min-height: 850px;
   background-color: #ffffff;
+}
+
+/* about画面 */
+.title {
+  margin: 100px auto;
+  font-size: 60px;
+  text-align: center;
+}
+
+.about-image {
+  object-fit: cover;
 }
 
 /* メインビジュアル */
@@ -31,4 +42,11 @@ main {
 /* フッター */
 footer {
   background-color: #3f312b;
+}
+
+
+@media screen and (max-width: 992px) {
+  i {
+    margin: 0 3px;
+  }
 }
