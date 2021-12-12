@@ -1,15 +1,52 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "bootstrap";
+
+/* ナビゲーションバー */
+.navbar {
+  border-bottom: 1px solid #3f312b;
+}
+
+/* ハンバーガーメニューの枠消し */
+.navbar-light .navbar-toggler {
+    border-color: rgba(0,0,0,0);
+}
+
+/* メイン要素 */
+main {
+  min-height: 850px;
+  background-color: #ffffff;
+}
+
+/* about画面 */
+.title {
+  margin: 100px auto;
+  font-size: 60px;
+  text-align: center;
+}
+
+.about-image {
+  object-fit: cover;
+}
+
+/* メインビジュアル */
+.jumbotron {
+  background: url(mv.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.jumbotron .container .mv-text {
+  width: 320px;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.8);
+}
+
+/* フッター */
+footer {
+  background-color: #3f312b;
+}
+
+
+@media screen and (max-width: 992px) {
+  i {
+    margin: 0 3px;
+  }
+}

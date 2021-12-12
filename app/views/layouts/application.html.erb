@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--FontAwesome読み込み-->
+    <script src="https://kit.fontawesome.com/a9e277fd5e.js" crossorigin="anonymous"></script>
     <title>Shokupanbu</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +12,8 @@
   </head>
 
   <body>
+    <%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
