@@ -13,12 +13,33 @@
           HOME
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to about_path, class: "nav-link" do %>
-          <i class="fas fa-info"></i>
-          ABOUT
-        <% end %>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fas fa-store-alt"></i>
+            SHOP
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fas fa-bread-slice"></i>
+            TOAST
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fas fa-hamburger"></i>
+            SANDWICH
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to about_path, class: "nav-link" do %>
+            <i class="fas fa-info"></i>
+            ABOUT
+          <% end %>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to new_contact_path, class: "nav-link" do %>
           <i class="fas fa-question"></i>
@@ -27,18 +48,27 @@
       </li>
     </ul>
     <ul class="navbar-nav ">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-user"></i>
-          SIGN IN
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-user-plus"></i>
-          SIGN UP
-        </a>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt"></i>
+            SIGN OUT
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "nav-link" do %>
+            <i class="fas fa-user"></i>
+            SIGN IN
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_registration_path, class: "nav-link" do %>
+            <i class="fas fa-user-plus"></i>
+            SIGN UP
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
