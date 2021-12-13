@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # 将来的にユーザーネームでもサインインできるよう
   def configure_permitted_parameters
     added_attrs = [ :email, :full_name, :nick_name, :password, :password_confirmation ]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs

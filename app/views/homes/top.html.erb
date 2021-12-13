@@ -14,11 +14,27 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-lg-5">
-        <p>
-          ※詳細表示には会員登録が必要です。<br/>
-          ※レビュー投稿には会員登録が必要です。
-        </p>
+      <div class="col-lg-12">
+        <% if user_signed_in? %>
+          <div class="justify-content-lg-center mx-auto">
+            <div class="d-lg-flex">
+              <div class="col">
+                <%= link_to "食パン新規投稿", root_path, class: "btn btn-outline-dark" %>
+              </div>
+              <div class="col">
+                <%= link_to "食パン新規投稿", root_path, class: "btn btn-outline-dark" %>
+              </div>
+              <div class="col">
+                <%= link_to "食パン新規投稿", root_path, class: "btn btn-outline-dark" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <p>
+            ※詳細表示には会員登録が必要です。<br/>
+            ※レビュー投稿には会員登録が必要です。
+          </p>
+        <% end %>
       </div>
     </div>
     <div class="row my-5">
