@@ -1,0 +1,38 @@
+<main>
+  <h2 class="title">SHOPS</h2>
+  <div class="container">
+    <div class="row">
+      <div class="d-flex">
+        <div class="col-lg-5">
+          <% @shop.shop_images.each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 445, 445 %>
+          <% end %>
+          <% if @shop.user == current_user %>
+            <div class="d-grid gap-2 d-lg-block mt-3">
+              <%= link_to "編集", edit_shop_path(shop), class: "btn btn-outline-warning btn-sm" %>
+              <%= link_to "削除", shop_path(shop), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-lg-6 offset-lg-4">
+          <table class="table table-borderless">
+            <tr>
+              <th>投稿者</th>
+              <td>
+                <%= @shop.user.nick_name %>
+              </td>
+            </tr>
+            <tr>
+              <th>店舗名</th>
+              <td><%= @shop.name %></td>
+            </tr>
+            <tr>
+              <th>レビュー</th>
+              <td><%= @shop.review %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

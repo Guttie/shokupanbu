@@ -88,3 +88,6 @@ gem 'dotenv-rails'
 # 問い合わせ項目選択機能
 gem 'rails-i18n'
 gem 'enum_help'
+
+# デバッグ
+gem 'pry-rails'

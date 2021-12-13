@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   # ホーム画面関連
   root to: 'homes#top'
   get 'about' => 'homes#about', as: 'about'
+  
+  # 食パン投稿関連
+  resources :shops
 end
