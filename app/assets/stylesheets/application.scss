@@ -39,6 +39,11 @@ main {
   background-color: rgba(255,255,255,0.8);
 }
 
+/* 投稿画像設定 */
+.content {
+  object-fit: cover;
+}
+
 /* フッター */
 footer {
   background-color: #3f312b;

@@ -5,16 +5,16 @@
       <div class="d-flex">
         <div class="col-lg-5">
           <% @shop.shop_images.each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 445, 445 %>
+            <%= attachment_image_tag image, :image, format: 'jpeg', size: "445x445" %>
           <% end %>
           <% if @shop.user == current_user %>
-            <div class="d-grid gap-2 d-lg-block mt-3">
-              <%= link_to "編集", edit_shop_path(shop), class: "btn btn-outline-warning btn-sm" %>
-              <%= link_to "削除", shop_path(shop), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+            <div class="d-grid gap-5 d-lg-block my-5 mx-auto">
+              <%= link_to "編集", edit_shop_path(@shop), class: "btn btn-outline-warning btn-sm" %>
+              <%= link_to "削除", shop_path(@shop), method: :delete, class: "btn btn-outline-danger btn-sm" %>
             </div>
           <% end %>
         </div>
-        <div class="col-lg-6 offset-lg-4">
+        <div class="col-lg-6 offset-lg-1">
           <table class="table table-borderless">
             <tr>
               <th>投稿者</th>
