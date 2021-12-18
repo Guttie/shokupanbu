@@ -19,9 +19,7 @@
         <table class="table table-borderless">
           <tr>
             <th>投稿者</th>
-            <td>
-              <%= @shop.user.nick_name %>
-            </td>
+            <td><%= link_to @shop.user.nick_name, user_path(@shop.user.id) %> </td>
           </tr>
           <tr>
             <th>店舗名</th>

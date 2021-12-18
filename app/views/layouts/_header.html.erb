@@ -50,6 +50,12 @@
     <ul class="navbar-nav ">
       <% if user_signed_in? %>
         <li class="nav-item">
+          <%= link_to user_path(current_user.id), class: "nav-link" do %>
+            <i class="fas fa-user"></i>
+            MY PAGE
+          <% end %>
+        </li>
+        <li class="nav-item">
           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
             <i class="fas fa-sign-out-alt"></i>
             SIGN OUT
