@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
-  
+
   # 問い合わせフォーム
   post 'contacts/confirm' => 'contacts#confirm', as: 'confirm'
   get 'contacts/done' => 'contacts#done', as: 'done'
@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   # ホーム画面関連
   root to: 'homes#top'
   get 'about' => 'homes#about', as: 'about'
-  
+
   # 食パン投稿関連
   resources :shops
+
+  resources :users, only: [:show, :edit]
 end
