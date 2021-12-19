@@ -32,7 +32,7 @@ main {
 
 /* メインビジュアル */
 .jumbotron {
-  background: url(mv.jpg) center no-repeat;
+  background: image-url("mv.jpg") center no-repeat;
   background-size: cover;
 }
 
