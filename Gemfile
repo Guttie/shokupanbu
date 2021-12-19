@@ -84,6 +84,9 @@ gem 'kaminari','~> 1.2.1'
 
 # 環境変数化機能追加
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 # 問い合わせ項目選択機能
 gem 'rails-i18n'
