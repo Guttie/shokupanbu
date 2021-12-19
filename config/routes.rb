@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_for :users
+
+  # 問い合わせフォーム
+  post 'contacts/confirm' => 'contacts#confirm', as: 'confirm'
+  get 'contacts/done' => 'contacts#done', as: 'done'
+  resources :contacts, only: [:new, :create]
+
+  # ホーム画面関連
+  root to: 'homes#top'
+  get 'about' => 'homes#about', as: 'about'
+
+  # 食パン投稿関連
+  resources :shops
+
+  resources :users, only: [:show, :edit]
 end

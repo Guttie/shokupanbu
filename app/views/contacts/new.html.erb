@@ -1,0 +1,32 @@
+<main>
+  <h2 class="title">CONTACT</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <h3>お問合せフォーム</h3>
+        <p class="text-danger mb-2">※印は必須項目です。</p>
+        <%= form_with model: @contact, url: confirm_path, local:true do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "お名前" %><span class="text-danger">※</span>
+            <%= f.text_field :name, autofocus: true, placeholder: "(例)食パン太郎", class: "form-control rounded-0" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "返信先メールアドレス" %><span class="text-danger">※</span>
+            <%= f.text_field :email, placeholder: "(例)sample@sample.com", class: "form-control rounded-0" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :subject, "お問い合わせ項目" %><span class="text-danger">※</span>
+            <%= f.select :subject, Contact.subjects_i18n.invert, {}, {class: 'custom-select rounded-0'} %>
+          </div>
+          <div class="form-group">
+            <%= f.label :matter, "お問い合わせ内容" %><span class="text-danger">※</span>
+            <%= f.text_area :matter, rows: "5", placeholder: "(例)本文はこちら", class: "form-control rounded-0" %>
+          </div>
+          <div class="my-5">
+            <%= f.submit "確認画面へ", class: "btn btn-outline-primary mx-auto d-block rounded-0 px-3" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

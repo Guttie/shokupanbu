@@ -1,0 +1,37 @@
+<main>
+  <h2 class="title">CONTACT</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <h3 class="mb-2">お問合せ内容確認</h3>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th scope="row">お名前</th>
+              <td><%= @contact.name %></td>
+            </tr>
+            <tr>
+              <th scope="row">返信先メールアドレス</th>
+              <td><%= @contact.email %></td>
+            </tr>
+            <tr>
+              <th scope="row">お問い合わせ項目</th>
+              <td><%= @contact.subject_i18n %></td>
+            </tr>
+            <tr>
+              <th scope="row">お問い合わせ内容</th>
+              <td><%= @contact.matter %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%= form_with model: @contact do |f| %>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :email %>
+          <%= f.hidden_field :subject %>
+          <%= f.hidden_field :matter %>
+          <%= f.submit "送信", class: "btn btn-outline-success mx-auto d-block my-5 rounded-0 px-3" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
