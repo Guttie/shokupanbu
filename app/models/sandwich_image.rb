@@ -1,0 +1,2 @@
+class SandwichImage < ApplicationRecord
+end
