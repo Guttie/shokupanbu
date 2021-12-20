@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # 投稿関連
   resources :shops
   resources :toasts
+  resources :sandwiches
 
   resources :users, only: [:show, :edit]
 end
