@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about', as: 'about'
 
-  # 食パン投稿関連
+  # 投稿関連
   resources :shops
+  resources :toasts
 
   resources :users, only: [:show, :edit]
 end
