@@ -1,0 +1,47 @@
+<main>
+  <h2 class="title">TOASTS</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <% if @toast.user == current_user %>
+          <div class="d-flex justify-content-center mb-2">
+                <%= link_to "編集", edit_toast_path(@toast), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mr-3" %>
+                <%= link_to "削除", toast_path(@toast), method: :delete, class: "btn btn-outline-danger btn-sm rounded-0 px-3 ml-3" %>
+          </div>
+        <% end %>
+        <div id="slider_<%= @toast.id %>" class="col mb-5">
+          <% @toast.toast_images.each do |image| %>
+            <%= attachment_image_tag image, :image, format: 'jpeg', size: "445x445", class: "d-block mx-auto content" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6 offset-1">
+        <table class="table table-borderless">
+          <tr>
+            <th>投稿者</th>
+            <td><%= link_to @toast.user.nick_name, user_path(@toast.user.id) %> </td>
+          </tr>
+          <tr>
+            <th>トースト名</th>
+            <td><%= @toast.name %></td>
+          </tr>
+          <tr>
+            <th>レビュー</th>
+            <td><%= @toast.review %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  $(function() {
+    $('#slider_<%= @toast.id %>').slick({
+      speed: 900,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 6000,
+    });
+  });
+</script>
