@@ -1,11 +1,8 @@
 <main>
   <h2 class="title">MY PAGE</h2>
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-3 offset-1">
-        <% if @user == current_user %>
-          <%= link_to "マイページ編集", edit_user_registration_path(@user), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mb-2" %>
-        <% end %>
         <%= attachment_image_tag @user, :image, format: 'jpeg', size: "255x255", fallback: "content-test.jpg", class: "d-block mx-auto content" %>
       </div>
       <div class="col-6 offset-1">
@@ -25,6 +22,32 @@
             <th>メールアドレス</th>
             <td><%= @user.email %></td>
           </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <% if @user == current_user %>
+        <div class="mx-auto">
+          <%= link_to "マイページ編集", edit_user_registration_path(@user), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mb-2" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row mb-5">
+      <div class="col-6 offset-3">
+        <h3><%= @user.nick_name %>さんの投稿一覧</h3>
+        <table class="table">
+          <tr>
+            <th class="text-center header">ユーザー名</th>
+            <th class="text-center header">投稿タイトル</th>
+            <th class="text-center header">投稿日時</th>
+          </tr>
+          <% @overalls.each do |overall| %>
+            <tr>
+              <td class="text-center"><%= overall.user.nick_name %></td>
+              <td class="text-center"><%= overall.name %></td>
+              <td class="text-center"><%= l overall.created_at %></td>
+            </tr>
           <% end %>
         </table>
       </div>
