@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_20_070436) do
+ActiveRecord::Schema.define(version: 2021_12_22_110152) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.integer "toast_id", null: false
+    t.integer "sandwich_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sandwich_id"], name: "index_bookmarks_on_sandwich_id"
+    t.index ["shop_id"], name: "index_bookmarks_on_shop_id"
+    t.index ["toast_id"], name: "index_bookmarks_on_toast_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
@@ -79,7 +92,6 @@ ActiveRecord::Schema.define(version: 2021_12_20_070436) do
     t.string "nick_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
