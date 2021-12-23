@@ -7,6 +7,7 @@ header {
     position: fixed; /* ウィンドウを基準に画面に固定 */
     top: 0; /* 上下の固定位置を上から0pxにする */
     left: 0; /* 左右の固定位置を左から0pxにする */
+    z-index: 1000;
 }
 
 /* ナビゲーションバー */
@@ -56,9 +57,19 @@ main {
   object-fit: cover;
 }
 
+.slider_position {
+  position: relative;
+}
+
 .bookmark {
   text-decoration: none !important;
-  color: #c89932 !important;
+  color: #F0F070 !important;
+}
+
+.bookmark_position {
+  position: absolute;
+  top: 2%;
+  right: 6%;
 }
 
 /* フッター */
