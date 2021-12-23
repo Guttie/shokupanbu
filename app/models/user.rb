@@ -7,6 +7,4 @@ class User < ApplicationRecord
   attachment :image
 
   has_many :shops, dependent: :destroy
-  has_many :toasts, dependent: :destroy
-  has_many :sandwiches, dependent: :destroy
 end

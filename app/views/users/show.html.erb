@@ -39,11 +39,11 @@
             <th class="text-center header">投稿タイトル</th>
             <th class="text-center header">投稿日時</th>
           </tr>
-          <% @overalls.each do |overall| %>
+          <% @shops.each do |shop| %>
             <tr>
-              <td class="text-center"><%= overall.user.nick_name %></td>
-              <td class="text-center"><%= overall.name %></td>
-              <td class="text-center"><%= l overall.created_at %></td>
+              <td class="text-center"><%= shop.user.nick_name %></td>
+              <td class="text-center"><%= shop.name %></td>
+              <td class="text-center"><%= l shop.created_at %></td>
             </tr>
           <% end %>
         </table>
