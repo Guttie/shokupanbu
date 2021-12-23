@@ -2,6 +2,18 @@ class PostsController < ApplicationController
   # サインインしている場合のみアクセス許可
   before_action :authenticate_user!
 
+  def shop
+    @posts = Post.all
+  end
+
+  def toast
+    @posts = Post.all
+  end
+
+  def sandwich
+    @posts = Post.all
+  end
+
   def index
     @posts = Post.all
   end
@@ -20,7 +32,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
-  
+
   def edit
     @post = Post.find(params[:id])
     if @post.user_id = current_user.id
@@ -29,7 +41,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-  
+
   def update
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
@@ -50,6 +62,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :name, :review, post_images_images: [])
+    params.require(:post).permit(:image, :name, :review, :category, post_images_images: [])
   end
 end

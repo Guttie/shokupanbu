@@ -15,19 +15,19 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to posts_path, class: "nav-link" do %>
+          <%= link_to shop_path, class: "nav-link" do %>
             <i class="fas fa-store-alt"></i>
             SHOPS
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to root_path, class: "nav-link" do %>
+          <%= link_to toast_path, class: "nav-link" do %>
             <i class="fas fa-bread-slice"></i>
             TOASTS
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to root_path, class: "nav-link" do %>
+          <%= link_to sandwich_path, class: "nav-link" do %>
             <i class="fas fa-hamburger"></i>
             SANDWICHES
           <% end %>
