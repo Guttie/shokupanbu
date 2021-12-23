@@ -66,9 +66,12 @@ footer {
   background-color: #3f312b;
 }
 
+/*ページネーション自体のデザイン*/
+.pagination {
+  justify-content: center;
+}
 
-@media screen and (max-width: 992px) {
-  i {
-    margin: 0 3px;
-  }
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
 }
