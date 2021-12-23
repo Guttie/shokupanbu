@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   attachment :image
 
-  has_many :shops, dependent: :destroy
+  has_many :posts, dependent: :destroy
 end

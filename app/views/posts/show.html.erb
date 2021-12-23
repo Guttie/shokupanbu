@@ -1,16 +1,16 @@
 <main>
-  <h2 class="title">SHOPS</h2>
+  <h2 class="title">POSTS</h2>
   <div class="container">
     <div class="row">
       <div class="col-5">
-        <% if @shop.user == current_user %>
+        <% if @post.user == current_user %>
           <div class="d-flex justify-content-center mb-2">
-                <%= link_to "編集", edit_shop_path(@shop), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mr-3" %>
-                <%= link_to "削除", shop_path(@shop), method: :delete, class: "btn btn-outline-danger btn-sm rounded-0 px-3 ml-3" %>
+                <%= link_to "編集", edit_post_path(@post), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mr-3" %>
+                <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-outline-danger btn-sm rounded-0 px-3 ml-3" %>
           </div>
         <% end %>
-        <div id="slider_<%= @shop.id %>" class="col mb-5">
-          <% @shop.shop_images.each do |image| %>
+        <div id="slider_<%= @post.id %>" class="col mb-5">
+          <% @post.post_images.each do |image| %>
             <%= attachment_image_tag image, :image, format: 'jpeg', size: "445x445", class: "d-block mx-auto content" %>
           <% end %>
         </div>
@@ -19,15 +19,15 @@
         <table class="table table-borderless">
           <tr>
             <th>投稿者</th>
-            <td><%= link_to @shop.user.nick_name, user_path(@shop.user.id) %> </td>
+            <td><%= link_to @post.user.nick_name, user_path(@post.user.id) %> </td>
           </tr>
           <tr>
             <th>店舗名</th>
-            <td><%= @shop.name %></td>
+            <td><%= @post.name %></td>
           </tr>
           <tr>
             <th>レビュー</th>
-            <td><%= @shop.review %></td>
+            <td><%= @post.review %></td>
           </tr>
         </table>
       </div>
@@ -37,7 +37,7 @@
 
 <script>
   $(function() {
-    $('#slider_<%= @shop.id %>').slick({
+    $('#slider_<%= @post.id %>').slick({
       speed: 900,
       arrows: false,
       autoplay: true,

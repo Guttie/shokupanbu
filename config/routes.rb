@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'about' => 'homes#about', as: 'about'
 
   # 投稿関連
-  resources :shops
+  resources :posts
 
   resources :users, only: [:show, :edit]
 end
