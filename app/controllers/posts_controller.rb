@@ -3,15 +3,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def shop
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(9)
   end
 
   def toast
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(9)
   end
 
   def sandwich
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(9)
   end
 
   def new

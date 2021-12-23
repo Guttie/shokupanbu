@@ -23,14 +23,14 @@
         </table>
       </div>
     </div>
-    <div class="row mb-5">
+    <div class="row">
       <% if @user == current_user %>
         <div class="mx-auto">
           <%= link_to "マイページ編集", edit_user_registration_path(@user), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mb-2" %>
         </div>
       <% end %>
     </div>
-    <div class="row mb-5">
+    <div class="row my-5">
       <div class="col-6 offset-3">
         <h3><%= @user.nick_name %>さんの投稿一覧</h3>
         <table class="table">
@@ -58,6 +58,7 @@
             </tr>
           <% end %>
         </table>
+        <%= paginate @posts %>
       </div>
     </div>
   </div>
