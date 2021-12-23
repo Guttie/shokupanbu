@@ -12,7 +12,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <!--スライダー読み込み-->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -20,7 +20,9 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <header>
+      <%= render "layouts/header" %>
+    </header>
     <%= yield %>
     <%= render "layouts/footer" %>
   </body>

@@ -38,12 +38,23 @@
             <th class="text-center header">カテゴリー</th>
             <th class="text-center header">投稿タイトル</th>
             <th class="text-center header">投稿日時</th>
+            <th></th>
           </tr>
           <% @posts.each do |post| %>
             <tr>
               <td class="text-center"><%= post.category_i18n %></td>
               <td class="text-center"><%= post.name %></td>
               <td class="text-center"><%= l post.created_at %></td>
+              <% if @user == current_user %>
+                <td>
+                  <%= link_to edit_post_path(post) do %>
+                    <i class="fas fa-pen"></i>
+                  <% end %>
+                  <%= link_to post_path(post), method: :delete do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </table>
