@@ -54,6 +54,12 @@
                     <i class="fas fa-trash"></i>
                   <% end %>
                 </td>
+              <% else %>
+                <td>
+                  <div id="bookmark_button_<%= post.id %>">
+                    <%= render "bookmarks/bookmark", post: post %>
+                  </div>
+                </td>
               <% end %>
             </tr>
           <% end %>
