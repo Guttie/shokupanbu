@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # 問い合わせフォーム
   post 'contacts/confirm' => 'contacts#confirm', as: 'confirm'
+  get 'contacts/confirm' => 'contacts#confirm', as: 'confirm_get'
   get 'contacts/done' => 'contacts#done', as: 'done'
   resources :contacts, only: [:new, :create]
 
