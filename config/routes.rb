@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about', as: 'about'
 
-  # 食パン投稿関連
-  resources :shops
+  #投稿関連
+  get 'posts/shops' => 'posts#shop', as: 'shop'
+  get 'posts/toasts' => 'posts#toast', as: 'toast'
+  get 'posts/sandwiches' => 'posts#sandwich', as: 'sandwich'
+  resources :posts, except: [:index] do
+    resource :bookmarks, only: [:create, :destroy]
+  end
 
   resources :users, only: [:show, :edit]
 end

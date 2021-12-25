@@ -1,0 +1,53 @@
+<main>
+  <h2 class="title">POSTS</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <% if @post.user == current_user %>
+          <div class="d-flex justify-content-center mb-2">
+            <%= link_to "編集", edit_post_path(@post), class: "btn btn-outline-warning btn-sm rounded-0 px-3 mr-3" %>
+            <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-outline-danger btn-sm rounded-0 px-3 ml-3" %>
+          </div>
+        <% else %>
+          <% if @post.bookmarked_by?(current_user) %>
+            <%= link_to "ブックマーク解除", post_bookmarks_path(@post), method: :delete, class: "btn btn-outline-warning btn-sm rounded-0 px-3 m-3" %>
+          <% else %>
+            <%= link_to "ブックマークする", post_bookmarks_path(@post), method: :post, class: "btn btn-outline-warning btn-sm rounded-0 px-3 m-3" %>
+          <% end %>
+        <% end %>
+        <div id="slider_<%= @post.id %>" class="col mb-5">
+          <% @post.post_images.each do |image| %>
+            <%= attachment_image_tag image, :image, format: 'jpeg', size: "445x445", class: "d-block mx-auto content" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6 offset-1">
+        <table class="table table-borderless">
+          <tr>
+            <th>投稿者</th>
+            <td><%= link_to @post.user.nick_name, user_path(@post.user.id) %> </td>
+          </tr>
+          <tr>
+            <th>店舗名</th>
+            <td><%= @post.name %></td>
+          </tr>
+          <tr>
+            <th>レビュー</th>
+            <td><%= @post.review %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  $(function() {
+    $('#slider_<%= @post.id %>').slick({
+      speed: 900,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 6000,
+    });
+  });
+</script>

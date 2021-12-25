@@ -1,7 +1,16 @@
 ja:
-  enums: 
+  enums:
     contact: # モデル名
       subject: # カラム名
         app: '食パン部の使用について' # enumの値
         develop: 'アプリ開発・制作について' # enumの値
         other: 'その他' # enumの値
+    post:
+      category:
+        shop: '食パン屋'
+        toast: 'トースト'
+        sandwich: 'サンドウィッチ'
+
+  time:
+    formats:
+      default: "%m/%d %H:%M"

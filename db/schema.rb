@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_20_070436) do
+ActiveRecord::Schema.define(version: 2021_12_23_043007) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_bookmarks_on_post_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
@@ -21,52 +30,21 @@ ActiveRecord::Schema.define(version: 2021_12_20_070436) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sandwich_images", force: :cascade do |t|
-    t.integer "sandwich_id", null: false
+  create_table "post_images", force: :cascade do |t|
+    t.integer "post_id", null: false
     t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sandwich_id"], name: "index_sandwich_images_on_sandwich_id"
+    t.index ["post_id"], name: "index_post_images_on_post_id"
   end
 
-  create_table "sandwiches", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "name", null: false
     t.text "review", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "shop_images", force: :cascade do |t|
-    t.integer "shop_id", null: false
-    t.string "image_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shop_id"], name: "index_shop_images_on_shop_id"
-  end
-
-  create_table "shops", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "review", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "toast_images", force: :cascade do |t|
-    t.integer "toast_id", null: false
-    t.string "image_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["toast_id"], name: "index_toast_images_on_toast_id"
-  end
-
-  create_table "toasts", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "review", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "category", default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,7 +57,6 @@ ActiveRecord::Schema.define(version: 2021_12_20_070436) do
     t.string "nick_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

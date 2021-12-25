@@ -1,2 +1,0 @@
-class ToastImage < ApplicationRecord
-end

@@ -1,5 +1,15 @@
 @import "bootstrap";
 
+
+header {
+    width: 100%; /* 幅いっぱいを指定 */
+    box-sizing: border-box; /* padding分を含んで幅を100%にするため */
+    position: fixed; /* ウィンドウを基準に画面に固定 */
+    top: 0; /* 上下の固定位置を上から0pxにする */
+    left: 0; /* 左右の固定位置を左から0pxにする */
+    z-index: 1000;
+}
+
 /* ナビゲーションバー */
 .navbar {
   border-bottom: 1px solid #3f312b;
@@ -39,6 +49,7 @@ main {
 .jumbotron .container .mv-text {
   width: 320px;
   padding: 10px;
+  margin-top: 100px;
   background-color: rgba(255,255,255,0.8);
 }
 
@@ -47,14 +58,40 @@ main {
   object-fit: cover;
 }
 
+.slider_position {
+  position: relative;
+}
+
+.bookmark {
+  text-decoration: none !important;
+  color: #F0F070 !important;
+}
+
+.bookmark_position {
+  position: absolute;
+  top: 2%;
+  right: 6%;
+}
+
+/* 右下新規投稿ボタン */
+.new_post {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 6px 40px;
+}
+
 /* フッター */
 footer {
   background-color: #3f312b;
 }
 
+/*ページネーション自体のデザイン*/
+.pagination {
+  justify-content: center;
+}
 
-@media screen and (max-width: 992px) {
-  i {
-    margin: 0 3px;
-  }
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
 }

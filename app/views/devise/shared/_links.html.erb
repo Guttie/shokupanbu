@@ -1,16 +1,16 @@
 <%- if controller_name != 'sessions' %>
   <p>会員登録済みの方は、<br/>下記よりサインインしてください。</p>
-  <%= link_to "Sign in", new_session_path(resource_name), class: "btn btn-outline-primary mb-3" %><br />
+  <%= link_to "サインイン", new_session_path(resource_name), class: "btn btn-outline-primary mb-3 rounded-0 px-3" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <p>会員登録がお済みでない方は、<br/>下記より新規会員登録をしてください。</p>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-outline-primary mb-3" %><br />
+  <%= link_to "登録", new_registration_path(resource_name), class: "btn btn-outline-primary mb-3 rounded-0 px-3" %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <p>パスワードを忘れた場合は、<br/>下記よりパスワードリセットをしてください。</p>
-  <%= link_to "Forgot password", new_password_path(resource_name), class: "btn btn-outline-warning mb-3" %><br />
+  <%= link_to "リセット", new_password_path(resource_name), class: "btn btn-outline-warning mb-3 rounded-0 px-3" %><br />
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

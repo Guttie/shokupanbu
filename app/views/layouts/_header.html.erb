@@ -1,4 +1,4 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-icon-top navbar-expand-sm navbar-light bg-white">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png", alt: "食パン部", width: "187.5", height: "50" %>
   <% end %>
@@ -15,21 +15,21 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to shops_path, class: "nav-link" do %>
+          <%= link_to shop_path, class: "nav-link" do %>
             <i class="fas fa-store-alt"></i>
-            SHOP
+            SHOPS
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to root_path, class: "nav-link" do %>
+          <%= link_to toast_path, class: "nav-link" do %>
             <i class="fas fa-bread-slice"></i>
-            TOAST
+            TOASTS
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to root_path, class: "nav-link" do %>
+          <%= link_to sandwich_path, class: "nav-link" do %>
             <i class="fas fa-hamburger"></i>
-            SANDWICH
+            SANDWICHES
           <% end %>
         </li>
       <% else %>
