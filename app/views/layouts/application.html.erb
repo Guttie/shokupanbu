@@ -24,6 +24,12 @@
       <%= render "layouts/header" %>
     </header>
     <%= yield %>
+    <% if user_signed_in? %>
+      <%= link_to new_post_path, class: "new_post btn btn-info rounded-0 px-3" do %>
+        <i class="fas fa-folder-plus fa-3x"></i><br />
+        新規投稿
+      <% end %>
+    <% end %>
     <%= render "layouts/footer" %>
   </body>
 </html>

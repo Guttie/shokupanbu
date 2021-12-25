@@ -73,6 +73,14 @@ main {
   right: 6%;
 }
 
+/* 右下新規投稿ボタン */
+.new_post {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 6px 40px;
+}
+
 /* フッター */
 footer {
   background-color: #3f312b;
