@@ -17,15 +17,20 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
 
   <body>
     <header>
       <%= render "layouts/header" %>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
     </header>
     <%= yield %>
     <% if user_signed_in? %>
-      <%= link_to new_post_path, class: "new_post btn btn-info rounded-0 px-3" do %>
+      <%= link_to new_post_path, class: "new_post btn btn-info rounded-0 px-3 shadow" do %>
         <i class="fas fa-folder-plus fa-3x"></i><br />
         新規投稿
       <% end %>

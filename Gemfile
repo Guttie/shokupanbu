@@ -74,6 +74,7 @@ gem 'jquery-rails'
 
 # 会員情報管理機能追加
 gem 'devise'
+gem 'devise-i18n'
 
 # 画像投稿機能追加
 gem "refile", require: "refile/rails", github: 'manfe/refile'
@@ -94,3 +95,6 @@ gem 'enum_help'
 
 # デバッグ
 gem 'pry-rails'
+
+# 検索機能
+# gem 'ransack'

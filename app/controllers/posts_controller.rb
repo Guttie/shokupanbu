@@ -14,6 +14,30 @@ class PostsController < ApplicationController
     @posts = Post.where(category: 'sandwich').page(params[:page]).per(9)
   end
 
+  def search
+    # @search = Post.ransack(params[:q])
+    # @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
+
+    @keywords = params[:keywords].split(/[[:blank:]]+/)
+
+    @posts = Post.none
+
+    unless params[:keywords].blank?
+      enum_search = Post.categories_i18n.index(params[:keywords])
+      category = Post.categories[enum_search.to_sym] unless enum_search.nil?
+
+      @keywords.each do |keyword|
+        @posts = @posts.or(Post.search(keyword, category))
+      end
+
+      @posts = @posts.order(created_at: :desc)
+                      .page(params[:page])
+                      .per(10)
+    else
+      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)
+    end
+  end
+
   def new
     @post = Post.new
   end
@@ -21,8 +45,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post.id)
+    if @post.save
+      redirect_to post_path(@post.id), notice: "投稿が成功しました。"
+    else
+      render :new
+    end
   end
 
   def show
@@ -42,7 +69,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
     if @post.update(post_params)
-      redirect_to post_path(@post.id)
+      redirect_to post_path(@post.id), notice: "編集が成功しました。"
     else
       render :edit
     end
@@ -51,7 +78,18 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    p @post
+
+    case @post.category
+      when 'shop' then
+        redirect_to shop_path
+      when 'toast' then
+        redirect_to toast_path
+      when 'sandwich' then
+        redirect_to sandwich_path
+      else
+        redirect_to root_path
+    end
   end
 
   # 投稿のストロングパラメータ

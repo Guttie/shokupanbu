@@ -11,4 +11,8 @@ class Post < ApplicationRecord
     #既にブックマークしていないか検証
     bookmarks.where(user_id: user.id).exists?
   end
+
+  def self.search(keyword, category)
+    where('name LIKE ? OR category = ?', "%#{keyword}%", category)
+  end
 end
