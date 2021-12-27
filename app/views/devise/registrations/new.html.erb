@@ -2,11 +2,11 @@
   <h2 class="title">SIGN UP</h2>
   <div class="container">
     <div class="row">
-      <div class="col-6 mx-auto">
+      <div class="col-12 col-md-6 offset-md-3">
         <h3>新規会員登録</h3>
         <p class="text-danger mb-2">※印は必須項目です。</p>
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+        <%= render "devise/shared/error_messages", resource: resource %>
           <div class="form-group">
             <%= f.label :full_name, "お名前" %> <span class="text-danger">※</span>
             <%= f.text_field :full_name, autofocus: true, placeholder: "(例)食パン太郎", class: "form-control rounded-0" %>

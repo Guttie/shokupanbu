@@ -1,2 +1,4 @@
 $('#bookmark_button_<%= @post.id %>')
   .html("<%= j(render "bookmarks/bookmark", post: @post) %>");
+$('#bookmark_moji_<%= @post.id %>')
+  .html("<%= j(render "bookmarks/moji_bookmark", post: @post) %>");

@@ -7,7 +7,7 @@
           <div class="d-flex flex-wrap">
             <% @posts.each do |post| %>
               <% if post.category == "sandwich" %>
-                <div class="col col-4 mb-5 slider_position">
+                <div class="col-12 col-md-4 mb-5 slider_position">
                   <div id="slider_<%= post.id %>">
                     <% post.post_images.each do |image| %>
                       <%= link_to post_path(post.id) do %>

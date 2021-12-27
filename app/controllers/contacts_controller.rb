@@ -5,11 +5,15 @@ class ContactsController < ApplicationController
   end
 
   def confirm
-    # 入力値のチェック
-    @contact = Contact.new(contact_params)
-    if @contact.invalid?
-      #NG 入力画面を再表示
+    if params[:contact].nil?
       render :new
+    else
+      # 入力値のチェック
+      @contact = Contact.new(contact_params)
+      if @contact.invalid?
+        #NG 入力画面を再表示
+        render :new
+      end
     end
   end
 
