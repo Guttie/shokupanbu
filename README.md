@@ -30,8 +30,8 @@
 - 美味しかった店を見つけて記録に残したい時や世に広めたい時。
 - 家族や友人、恋人とピクニックやキャンプをする際の食パンレシピを検索。
 
-## 設計書
-作成前です。
+## ER図
+https://drive.google.com/file/d/19ixDvHsicmlJx9YTh8CKlAw1WCr014Dc/view?usp=sharing
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1Is3HR7aws8DGU1Py-soHkGyWkOCm9tJz1NX2jXi-RRk/edit#gid=0>

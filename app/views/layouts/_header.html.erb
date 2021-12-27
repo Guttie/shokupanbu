@@ -1,11 +1,18 @@
-<nav class="navbar navbar-icon-top navbar-expand-md navbar-light bg-white">
+<nav class="navbar navbar-icon-top navbar-expand-xl navbar-light bg-white shadow-sm">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png", alt: "食パン部", width: "187.5", height: "50" %>
   <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="true" aria-label="Toggle navigation">
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarHeader"
+          aria-controls="navbarHeader"
+          aria-expanded="true"
+          aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="navbar-collapse collapse show" id="navbarHeader">
+  <div class="navbar-collapse collapse" id="navbarHeader">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <%= link_to root_path, class: "nav-link" do %>
@@ -47,7 +54,7 @@
         <% end %>
       </li>
     </ul>
-    <ul class="navbar-nav ">
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to user_path(current_user.id), class: "nav-link" do %>
@@ -60,6 +67,8 @@
             <i class="fas fa-sign-out-alt"></i>
             SIGN OUT
           <% end %>
+        </li>
+        <li class="nav-item">
         </li>
       <% else %>
         <li class="nav-item">
@@ -76,5 +85,12 @@
         </li>
       <% end %>
     </ul>
+    <% if user_signed_in? %>
+      <%= form_tag(search_path, method: :get) do %>
+        <div class="">
+          <%= text_field_tag :keywords, params[:keywords], class: "form-control rounded-0", placeholder: 'Search' %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </nav>

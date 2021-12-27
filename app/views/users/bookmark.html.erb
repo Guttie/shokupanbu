@@ -1,0 +1,29 @@
+<main>
+  <h2 class="title">BOOKMARKS</h2>
+  <div class="container">
+    <div class="row my-5">
+      <div class="col-12 col-md-8 offset-md-2 mb-5">
+        <h3><%= current_user.nick_name %>さんのブックマーク一覧</h3>
+        <% if @bookmark_list.count != 0 %>
+          <table class="table">
+            <tr>
+              <th class="text-center header">カテゴリー</th>
+              <th class="text-center header">投稿タイトル</th>
+              <th class="text-center header">投稿日時</th>
+            </tr>
+            <% @bookmark_list.each do |bookmark| %>
+              <tr>
+                <td class="text-center"><%= bookmark.post.category_i18n %></td>
+                <td class="text-center"><%= bookmark.post.name %></td>
+                <td class="text-center"><%= l bookmark.post.created_at %></td>
+              </tr>
+            <% end %>
+          </table>
+        <% else %>
+          <p>検索結果はありません</p>
+        <% end %>
+        <%= paginate @bookmark_list %>
+      </div>
+    </div>
+  </div>
+</main>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'posts/shops' => 'posts#shop', as: 'shop'
   get 'posts/toasts' => 'posts#toast', as: 'toast'
   get 'posts/sandwiches' => 'posts#sandwich', as: 'sandwich'
+  get 'posts/search' => 'posts#search', as: 'search'
   resources :posts, except: [:index] do
     resource :bookmarks, only: [:create, :destroy]
   end
