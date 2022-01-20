@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     # @posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
 
     @keywords = params[:keywords].split(/[[:blank:]]+/)
-
+    
     @posts = Post.none
 
     unless params[:keywords].blank?
